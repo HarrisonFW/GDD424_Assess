@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //Code provided for this script, PlayerCamera and moveCamera from Dave / GameDevelopment on YouTube
+
     [Header("Movement")]
     public float moveSpeed;
 
