@@ -11,13 +11,17 @@ public class PlayerMovement : MonoBehaviour
 
     public float groundDrag;
 
+    
+    
+
+
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJumpAgain;
 
     [Header("Keybinds")]
-    public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode jumpKey = KeyCode.Space;      
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -43,7 +47,9 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         //ground check to check the player is indeed touching the ground
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        // OLD grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, GetComponent<Collider>().bounds.extents.y + 0.2f, whatIsGround);
+
 
         MyInput();
         SpeedControl();
@@ -68,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         //when to jump
         if(Input.GetKey(jumpKey) && readyToJumpAgain && grounded)
         {
+            Debug.Log("Spacebar is being pressed");
             readyToJumpAgain = false;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
@@ -106,6 +113,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        Debug.Log("Jump force applied:  " + jumpForce);
+        Debug.Log("Current velocity after jump:  " + rb.velocity);
         //reset the Y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
