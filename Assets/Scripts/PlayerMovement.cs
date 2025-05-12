@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //ground check to check the player is indeed touching the ground
         // OLD grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        grounded = Physics.Raycast(transform.position, Vector3.down, GetComponent<Collider>().bounds.extents.y + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, GetComponent<Collider>().bounds.extents.y + 0.3f, whatIsGround);
 
 
         MyInput();
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         //when to jump
-        if(Input.GetKey(jumpKey) && readyToJumpAgain && grounded)
+        if(Input.GetKey(KeyCode.Space) && readyToJumpAgain )
         {
             Debug.Log("Spacebar is being pressed");
             readyToJumpAgain = false;
