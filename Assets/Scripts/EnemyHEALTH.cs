@@ -11,6 +11,7 @@ public class EnemyHEALTH : MonoBehaviour
     [Header("Sprite Settings")]
     public Sprite idleSprite;
     public Sprite hurtSprite;
+    public Sprite deadSprite;
     private SpriteRenderer spriteRenderer;
 
     [Header("Damage Feedback")]
@@ -75,7 +76,9 @@ public class EnemyHEALTH : MonoBehaviour
         {
             if (isDead) { return; }
             isDead = true;
-            Destroy(gameObject);
+
+            spriteRenderer.sprite = deadSprite;
+            //Destroy(gameObject);
             //GetComponent<Animator>().SetTrigger("dyingTrigger");
         }
     }

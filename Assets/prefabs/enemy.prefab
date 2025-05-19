@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleSprite: {fileID: 21300000, guid: a6e6a045c30c0ce4e80641a2f3567333, type: 3}
   hurtSprite: {fileID: 21300000, guid: eec2327dd3a5cb043af797111057db51, type: 3}
+  deadSprite: {fileID: 21300000, guid: 0e7d0140bc3094e45933f987fdfa81cf, type: 3}
   hurtDuration: 0.2
 --- !u!65 &1873346187768930325
 BoxCollider:
