@@ -8,6 +8,8 @@ public class EnemyHEALTH : MonoBehaviour
 
     bool isDead = false;
 
+    //thank you ChatGPT for the changing sprite code
+
     [Header("Sprite Settings")]
     public Sprite idleSprite;
     public Sprite hurtSprite;
@@ -42,6 +44,9 @@ public class EnemyHEALTH : MonoBehaviour
 
     public void Update()
     {
+
+        transform.LookAt(player.transform);
+
         //FacePlayer();
 
         if (hurtTimer > 0)
@@ -61,6 +66,9 @@ public class EnemyHEALTH : MonoBehaviour
    //     transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
    // }
 
+
+    
+
     public void TakeDamage(float weaponDamage)
     {
         BroadcastMessage("OnDamageTaken");
@@ -78,7 +86,7 @@ public class EnemyHEALTH : MonoBehaviour
             isDead = true;
 
             spriteRenderer.sprite = deadSprite;
-            //Destroy(gameObject);
+            Destroy(gameObject);
             //GetComponent<Animator>().SetTrigger("dyingTrigger");
         }
     }
