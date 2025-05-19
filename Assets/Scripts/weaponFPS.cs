@@ -6,6 +6,9 @@ public class weaponFPS : MonoBehaviour
 {
     [SerializeField] Camera originPos;
 
+   // [SerializeField] Ammo ammo;
+   // [SerializeField] AmmoType ammoType;
+
     [SerializeField] float weaponRange;
     [SerializeField] float weaponDamage;
     [SerializeField] float cooldownTime = 0.1f;
