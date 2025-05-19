@@ -464,6 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 452981098}
   - component: {fileID: 452981097}
+  - component: {fileID: 452981099}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -494,13 +495,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452981096}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.92, y: 7, z: -25.36}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.92, y: 7.004, z: -25.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 505698645}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &452981099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452981096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d71975a2d8d6454194881ddb57f2634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotgunImage: {fileID: 375089838}
+  shotgunIdle: {fileID: 21300000, guid: c8a40261e67515146bde7df299f3487c, type: 3}
+  shotgunFire1: {fileID: 21300000, guid: e1cbb044c7c70984795879e6ae4a0623, type: 3}
+  shotgunFire2: {fileID: 21300000, guid: 41868a0168046ec4483d62469d3c8b91, type: 3}
+  fireDisplayTime: 0.15
 --- !u!1 &505698644
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +552,7 @@ Transform:
   - {fileID: 899466690}
   - {fileID: 937112883}
   - {fileID: 1178774161}
+  - {fileID: 452981098}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
