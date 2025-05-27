@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class VoodooDollWeapon : MonoBehaviour
 {
-   
+   //You know 'em you love 'em, ChatGPT
+
     [Header("Attack Settings")]
     public float attackRange = 100f;
     public int damage = 5;
