@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class VoodooDollWeapon : MonoBehaviour
 {
-    [Header("Sprites")]
-
-    public Sprite idleSprite;
-    public Sprite stabSprite1;
-    public Sprite stabSprite2;
-
-
+   
     [Header("Attack Settings")]
     public float attackRange = 100f;
     public int damage = 5;
@@ -29,12 +23,7 @@ public class VoodooDollWeapon : MonoBehaviour
     private float stabAnimTimer = 0f;
     private bool stabSpriteToggle = false;
 
-    public void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = idleSprite;
-    }
-
+    
     public void Update()
     {
         if(Input.GetButtonDown("Fire1") && Time.time >= lastAttackTime + attackCooldown)
@@ -44,59 +33,50 @@ public class VoodooDollWeapon : MonoBehaviour
 
         if (isAttacking)
         {
-            HandleStabAnimation();
+            //HandleStabAnimation();
         }
     }
 
     public void Attack()
     {
-        lastAttackTime = Time.time;
-        isAttacking = true;
-        stabAnimTimer = 0f;
-        stabSpriteToggle = false;
+       
+            lastAttackTime = Time.time;
+            isAttacking = true;
+            stabAnimTimer = 0f;
+            stabSpriteToggle = false;
 
-        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, attackRange, enemyLayer);
+            // Visualize the ray in the Scene view
+            Debug.DrawRay(firePoint.position, firePoint.forward * attackRange, Color.red, 1f);
 
-        Debug.DrawRay(firePoint.position, firePoint.right * attackRange, Color.red, 1f); // <--- remove later when fixed
+            // Use Physics.Raycast (3D)
+            Ray ray = new Ray(firePoint.position, firePoint.forward);
+            RaycastHit hit;
 
-        if(hit.collider != null)
-        {
-            //Hit enemy
-            Debug.Log("Hit: " + hit.collider.name);
-            EnemyHEALTH enemy = hit.collider.GetComponent<EnemyHEALTH>();
-            if (enemy != null)
+            if (Physics.Raycast(ray, out hit, attackRange, enemyLayer))
             {
-                enemy.TakeDamage(damage);
+                Debug.Log("Raycast hit: " + hit.collider.name);
+
+                EnemyHEALTH enemy = hit.collider.GetComponentInParent<EnemyHEALTH>();
+
+                if (enemy != null)
+                {
+                    Debug.Log("EnemyHealth found! Dealing damage.");
+                    enemy.TakeDamage(damage);
+                }
+                else
+                {
+                    Debug.LogWarning("Hit object has no EnemyHealth component.");
+                }
             }
-        }
-        else
-        {
-            Debug.Log("No enemy Hit! Damaging Player.");
-            playerHealth.TakeDamage(damage);
-        }
+            else
+            {
+                Debug.Log("Raycast missed. Damaging player.");
+                playerHealth.TakeDamage(damage);
+            }
+        
+
     }
 
-    public void HandleStabAnimation()
-    {
-        stabAnimTimer += Time.deltaTime;
-
-        //Switch sprite halfway through the animation stabbing effect
-
-        if(stabAnimTimer < stabAnimDuration / 2f)
-        {
-            spriteRenderer.sprite = stabSprite1;
-        }
-
-        else if (stabAnimTimer < stabAnimDuration)
-        {
-            spriteRenderer.sprite = stabSprite2;
-        }
-        else
-        {
-            //Animation finsihed, back to the idle animation
-            spriteRenderer.sprite = idleSprite;
-            isAttacking = false;
-        }
-    }
+  
 
 }
