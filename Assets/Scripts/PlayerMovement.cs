@@ -47,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         //ground check to check the player is indeed touching the ground
-        // OLD grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         grounded = Physics.Raycast(transform.position, Vector3.down, GetComponent<Collider>().bounds.extents.y + 0.3f, whatIsGround);
 
 
