@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class weaponFPS : MonoBehaviour
 {
     [SerializeField] Camera originPos;
@@ -17,15 +16,13 @@ public class weaponFPS : MonoBehaviour
 
     private weaponAmmo ammo;
 
+
+    
+
     private void OnEnable()
     {
         canShoot = true;
     }
-
-
-
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +55,7 @@ public class weaponFPS : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(ammo.Reload());
+
         }
     }
 

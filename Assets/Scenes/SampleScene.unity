@@ -987,6 +987,11 @@ MonoBehaviour:
   maxAmmo: 10
   reloadTime: 0.5
   isReloading: 0
+  shotgunReload: {fileID: 375089838}
+  reload1: {fileID: 21300000, guid: 0fe98246c4783f04ba00a53893126c0a, type: 3}
+  reload2: {fileID: 21300000, guid: 07eb2537671e14d4aacccdc5c6ae4f87, type: 3}
+  reload3: {fileID: 21300000, guid: 72e66c0e973ef0d4e94c2bd6ed113f9a, type: 3}
+  relaodTime: 0.15
 --- !u!114 &452981101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2197,9 +2202,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoType: 1
   currentAmmo: 10
-  maxAmmo: 10
+  maxAmmo: 100
   reloadTime: 1
   isReloading: 0
+  shotgunReload: {fileID: 0}
+  reload1: {fileID: 0}
+  reload2: {fileID: 0}
+  reload3: {fileID: 0}
+  relaodTime: 0.15
 --- !u!114 &1465461804
 MonoBehaviour:
   m_ObjectHideFlags: 0

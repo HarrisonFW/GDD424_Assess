@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class weaponAmmo : MonoBehaviour
 {
@@ -15,6 +16,15 @@ public class weaponAmmo : MonoBehaviour
     public float reloadTime = 1f;
 
     public bool isReloading = false;
+
+
+    public Image shotgunReload;
+    public Sprite reload1;
+    public Sprite reload2;
+    public Sprite reload3;
+    public float relaodTime = 0.15f;
+
+
 
     //This gets called before shooting
     public bool CanFire()
@@ -40,6 +50,15 @@ public class weaponAmmo : MonoBehaviour
             yield break;
 
         isReloading = true;
+
+        shotgunReload.sprite = reload1;
+
+        yield return new WaitForSeconds(relaodTime);
+        shotgunReload.sprite = reload2;
+
+        yield return new WaitForSeconds(relaodTime);
+        shotgunReload.sprite = reload3;
+
         Debug.Log("Reloading...");
 
         yield return new WaitForSeconds(reloadTime);
