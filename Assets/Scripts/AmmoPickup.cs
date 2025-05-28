@@ -7,6 +7,7 @@ public class AmmoPickup : MonoBehaviour
     public weaponAmmo.AmmoType ammoType;
     public int ammoAmount = 5;
 
+    public Transform player;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,4 +25,11 @@ public class AmmoPickup : MonoBehaviour
             Destroy(gameObject); // removes the pickup after it's collected
         }
     }
+
+    private void Update()
+    {
+        transform.LookAt(player.transform); //so pickups always look at player, doesn't work for some reason
+    }
+
+
 }
