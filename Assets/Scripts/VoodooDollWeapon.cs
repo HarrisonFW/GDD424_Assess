@@ -24,12 +24,30 @@ public class VoodooDollWeapon : MonoBehaviour
     private float stabAnimTimer = 0f;
     private bool stabSpriteToggle = false;
 
-    
+    private weaponAmmo ammo;
+
+    public void Start()
+    {
+        ammo = GetComponent<weaponAmmo>();
+    }
+
     public void Update()
     {
         if(Input.GetButtonDown("Fire1") && Time.time >= lastAttackTime + attackCooldown)
         {
-            Attack();
+            if(ammo != null && ammo.CanFire())
+            {
+                //Only goes through with the Attack() if has ammo
+                Attack();
+                Debug.Log("Firing VoodooDoll");
+                ammo.ConsumeAmmo();
+            }
+            else
+            {
+                Debug.Log("Out of Needles");
+            }
+
+            
         }
 
         if (isAttacking)

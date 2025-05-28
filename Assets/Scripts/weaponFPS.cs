@@ -15,6 +15,8 @@ public class weaponFPS : MonoBehaviour
 
     bool canShoot = true;
 
+    private weaponAmmo ammo;
+
     private void OnEnable()
     {
         canShoot = true;
@@ -28,7 +30,7 @@ public class weaponFPS : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ammo = GetComponent<weaponAmmo>();
     }
 
     // Update is called once per frame
@@ -36,7 +38,19 @@ public class weaponFPS : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && canShoot)
         {
-            StartCoroutine(Shoot());
+            if (ammo != null && ammo.CanFire())
+            {
+                //Couroutine is called here to process rest of firing stuff
+                StartCoroutine(Shoot());
+                Debug.Log("Firing!");
+
+                ammo.ConsumeAmmo();
+            }
+            else
+            {
+                Debug.Log("Out of ammo!");
+            }
+            
         }
     }
 
