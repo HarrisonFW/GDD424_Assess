@@ -2201,7 +2201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoType: 1
-  currentAmmo: 10
+  currentAmmo: 100
   maxAmmo: 100
   reloadTime: 1
   isReloading: 0
@@ -2729,6 +2729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NeedlesPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824115653194060263, guid: eafbfd5a6496f0944b37943845bd97e3,
+        type: 3}
+      propertyPath: ammoType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eafbfd5a6496f0944b37943845bd97e3, type: 3}

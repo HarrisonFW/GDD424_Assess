@@ -33,31 +33,27 @@ public class VoodooDollWeapon : MonoBehaviour
 
     public void Update()
     {
-        if (ammo == null) return;
-
         if(Input.GetButtonDown("Fire1") && Time.time >= lastAttackTime + attackCooldown)
         {
-            if(ammo.CanFire())
+            if(ammo != null && ammo.CanFire())
             {
                 //Only goes through with the Attack() if has ammo
                 Attack();
                 Debug.Log("Firing VoodooDoll");
                 ammo.ConsumeAmmo();
             }
-            else if (!ammo.isReloading)
+            else
             {
-                Debug.Log("Out of Needles, press R to reload");
+                Debug.Log("Out of Needles");
             }
-
 
             
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (isAttacking)
         {
-            StartCoroutine(ammo.Reload());
+            //HandleStabAnimation();
         }
-
     }
 
     public void Attack()
