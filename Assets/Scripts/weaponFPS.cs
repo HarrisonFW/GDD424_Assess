@@ -36,9 +36,11 @@ public class weaponFPS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ammo == null) return;
+
         if(Input.GetMouseButtonDown(0) && canShoot)
         {
-            if (ammo != null && ammo.CanFire())
+            if (ammo.CanFire())
             {
                 //Couroutine is called here to process rest of firing stuff
                 StartCoroutine(Shoot());
@@ -46,13 +48,20 @@ public class weaponFPS : MonoBehaviour
 
                 ammo.ConsumeAmmo();
             }
-            else
+            else if(!ammo.isReloading)
             {
-                Debug.Log("Out of ammo!");
+                Debug.Log("Out of ammo! Press R to reload");
             }
             
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(ammo.Reload());
+        }
     }
+
+    
 
     private IEnumerator Shoot()
     {

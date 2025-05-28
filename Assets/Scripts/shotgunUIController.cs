@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class shotgunUIController : MonoBehaviour
 {
+    public weaponAmmo shotgunAmmo;
+
     //Thank you ChatGPT for this code
 
     public Image shotgunImage;
@@ -14,11 +16,21 @@ public class shotgunUIController : MonoBehaviour
     public Sprite shotgunFire2;
     public float fireDisplayTime = 0.15f;
 
+    private bool isFiring = false;
+
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !isFiring)
         {
-            StartCoroutine(FireShotgun());
+            if(shotgunAmmo != null && shotgunAmmo.CanFire())
+            {
+                shotgunAmmo.ConsumeAmmo();
+                StartCoroutine(FireShotgun());
+            }
+        }
+        else
+        {
+            Debug.Log("No ammo- can't fire");
         }
     }
 
