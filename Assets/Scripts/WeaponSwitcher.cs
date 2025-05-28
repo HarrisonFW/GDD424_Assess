@@ -11,6 +11,8 @@ public class WeaponSwitcher : MonoBehaviour
     public GameObject[] weapons;
     private int currentWeaponIndex = 0;
 
+    public GameObject[] weaponCanvases;
+
     void Start()
     {
         SelectWeapon(currentWeaponIndex);
@@ -53,14 +55,16 @@ public class WeaponSwitcher : MonoBehaviour
 
     void SelectWeapon(int index)
     {
-        currentWeaponIndex = index;
-
         for (int i = 0; i < weapons.Length; i++)
         {
-            weapons[i].SetActive(i == currentWeaponIndex);
-        }
+            bool isActive = i == index;
 
-        Debug.Log("Switched to weapon: " + weapons[index].name);
+            if (weapons[i] != null)
+                weapons[i].SetActive(isActive);
+
+            if (weaponCanvases[i] != null)
+                weaponCanvases[i].SetActive(isActive);
+        }
     }
 }
 
