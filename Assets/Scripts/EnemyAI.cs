@@ -20,9 +20,22 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent agent;
     private float nextFireTime;
 
+    //sprite components here
+    public Sprite idleSprite;
+    public Sprite firingSprite;
+    public float preFireDelay = 0.2f; //time between changing to the new sprte and shooting
+    private SpriteRenderer spriteRenderer;
+
+
     public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (spriteRenderer) spriteRenderer.sprite = idleSprite;
+
+
     }
 
     public void Update()
@@ -48,7 +61,10 @@ public class EnemyAI : MonoBehaviour
             //stop moving and begin shooting
             agent.isStopped = true;
             agent.ResetPath();
+
             transform.LookAt(player);
+
+
 
             if(Time.time >= nextFireTime)
             {
@@ -58,22 +74,35 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    void Shoot()
     {
+        StartCoroutine(FireWithWindup());
+    }
+
+    IEnumerator FireWithWindup()
+    {
+        if (spriteRenderer)
+            spriteRenderer.sprite = firingSprite;
+
+        yield return new WaitForSeconds(preFireDelay);
+
+        // Spawn the projectile
         GameObject proj = Instantiate(projectilePrefab, firePointForBullet.position, firePointForBullet.rotation);
         Rigidbody rb = proj.GetComponent<Rigidbody>();
-
         if (rb)
         {
             rb.velocity = (player.position - firePointForBullet.position).normalized * projectileSpeed;
         }
 
-        //remeber create projectile script
         Projectile projectileScript = proj.GetComponent<Projectile>();
         if (projectileScript)
         {
             projectileScript.damage = damage;
         }
+
+        // Return to idle sprite
+        if (spriteRenderer)
+            spriteRenderer.sprite = idleSprite;
     }
 
 }
