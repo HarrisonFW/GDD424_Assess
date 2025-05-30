@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4741718534615766911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2943, y: 0.841, z: 6.81}
+  m_LocalPosition: {x: 2.2943, y: 0.805, z: 6.81}
   m_LocalScale: {x: 0.5180282, y: 0.47189307, z: 1}
   m_Children:
   - {fileID: 4741718533473222317}
@@ -98,7 +98,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 2.68
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!212 &4741718534615766910
@@ -171,7 +171,7 @@ MonoBehaviour:
     type: 3}
   firePointForBullet: {fileID: 4741718533473222317}
   projectileSpeed: 25
-  damage: 10
+  damage: 2
   idleSprite: {fileID: 21300000, guid: a6e6a045c30c0ce4e80641a2f3567333, type: 3}
   firingSprite: {fileID: 21300000, guid: 299bb67ee11b41847a35851bc64f1d6c, type: 3}
   preFireDelay: 0.2

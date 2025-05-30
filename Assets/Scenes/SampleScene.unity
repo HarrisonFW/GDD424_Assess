@@ -3358,6 +3358,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 505698645}
+    - target: {fileID: 4741718534615766904, guid: c62f965db6afa1640af9c4b64f3b6300,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4741718534615766906, guid: c62f965db6afa1640af9c4b64f3b6300,
         type: 3}
       propertyPath: waveManager
@@ -3366,12 +3371,12 @@ PrefabInstance:
     - target: {fileID: 4741718534615766907, guid: c62f965db6afa1640af9c4b64f3b6300,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.2943
+      value: 2.431
       objectReference: {fileID: 0}
     - target: {fileID: 4741718534615766907, guid: c62f965db6afa1640af9c4b64f3b6300,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.841
+      value: 0.221
       objectReference: {fileID: 0}
     - target: {fileID: 4741718534615766907, guid: c62f965db6afa1640af9c4b64f3b6300,
         type: 3}
