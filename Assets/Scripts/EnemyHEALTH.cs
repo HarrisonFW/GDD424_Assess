@@ -44,7 +44,7 @@ public class EnemyHEALTH : MonoBehaviour
         }
     }
 
-    public void Update()
+    public void Update() //forces the sprites to look at the player at a moment to moment basis
     {
 
         transform.LookAt(player.transform);
@@ -63,7 +63,7 @@ public class EnemyHEALTH : MonoBehaviour
 
     
 
-    public void TakeDamage(float weaponDamage)
+    public void TakeDamage(float weaponDamage) // works on the enemy changing to its hurt sprite when damaged by either of the weapons, also calls the "Die" function here
     {
      
         BroadcastMessage("OnDamageTaken");
@@ -89,7 +89,7 @@ public class EnemyHEALTH : MonoBehaviour
     }
 
 
-    void Die()
+    void Die() //enemy gets destroyed on death and the wave manager is notified so a new wave can start
     {
         if(waveManager != null)
         {

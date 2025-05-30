@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, lifetime); // in case bullet projectile doesn't hit anything
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other) //checks if the bullet hits the player and makes them take damage, also destroys the bullet
     {
         if (other.CompareTag("Player"))
         {

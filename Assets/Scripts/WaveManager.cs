@@ -32,7 +32,7 @@ public class WaveManager : MonoBehaviour
         StartNextWave();
     }
 
-    public void StartNextWave()
+    public void StartNextWave() //function that starts the next wave by first updating the text on screen in acordence with the wave number and how many enemies are left, then calling the coroutine
     {
         currentWave++;
         waveText.text = "Wave " + currentWave;
@@ -49,7 +49,7 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(ClearNotificationAfterDelay(2f));
     }
 
-    IEnumerator SpawnEnemies(int count)
+    IEnumerator SpawnEnemies(int count) // this coroutine randomly chooses which spawnpoints the enemies will spawn at, after a short delay
     {
         for (int i = 0; i < count; i++)
         {
@@ -66,7 +66,7 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    public void OnEnemyKilled()
+    public void OnEnemyKilled() // updates the enemies remaining text and if no more are remaining then the new wave begins
     {
         enemiesRemaining--;
         enemiesLeftText.text = enemiesRemaining + " enemies left.";
@@ -77,13 +77,13 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    IEnumerator NextWaveAfterDelay(float delay)
+    IEnumerator NextWaveAfterDelay(float delay) //after a delay it starts the next wave
     {
         yield return new WaitForSeconds(delay);
         StartNextWave();
     }
 
-    IEnumerator ClearNotificationAfterDelay(float time)
+    IEnumerator ClearNotificationAfterDelay(float time) //replaces new notifications with a blank " "
     {
         yield return new WaitForSeconds(time);
         notificationText.text = "";

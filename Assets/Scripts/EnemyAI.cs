@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    public void Update()
+    public void Update() //at a moment to moment basis, checks how far the player is and either persues the player or once it's within range, starts shooting the player
     {
         if (!player) return;
 
@@ -79,7 +79,7 @@ public class EnemyAI : MonoBehaviour
         StartCoroutine(FireWithWindup());
     }
 
-    IEnumerator FireWithWindup()
+    IEnumerator FireWithWindup() // this code is supposed to change the enemies sprite to an "attack sprite" but doesn't work despite no errors being present.
     {
         if (spriteRenderer)
             spriteRenderer.sprite = firingSprite;
