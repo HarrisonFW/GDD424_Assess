@@ -74,7 +74,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void Shoot()
+    void Shoot()  //enemy still shoots but the changing of its sprite doesn't function.
     {
         StartCoroutine(FireWithWindup());
     }

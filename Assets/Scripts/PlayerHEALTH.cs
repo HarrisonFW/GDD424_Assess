@@ -17,6 +17,13 @@ public class PlayerHEALTH : MonoBehaviour
         if(hP <= 0)
         {
             Time.timeScale = 0;
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        Debug.Log("Player died! wow you freaking suck");
+        GameObject.FindObjectOfType<GameManager>().PlayerDied();
     }
 }
