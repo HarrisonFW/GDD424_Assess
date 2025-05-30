@@ -47,6 +47,7 @@ public class EnemyAI : MonoBehaviour
         {
             //stop moving and begin shooting
             agent.isStopped = true;
+            agent.ResetPath();
             transform.LookAt(player);
 
             if(Time.time >= nextFireTime)
