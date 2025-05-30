@@ -18,7 +18,7 @@ public class shotgunUIController : MonoBehaviour
 
     private bool isFiring = false;
 
-    private void Update()
+    private void Update() //consumes ammo when fired and processes firing with clicking the mouse button
     {
         if (Input.GetButtonDown("Fire1") && !isFiring)
         {
@@ -34,7 +34,7 @@ public class shotgunUIController : MonoBehaviour
         }
     }
 
-    IEnumerator FireShotgun()
+    IEnumerator FireShotgun() //shotgun firing sprites handleded here and are played in sequence
     {
         shotgunImage.sprite = shotgunFire1;
 

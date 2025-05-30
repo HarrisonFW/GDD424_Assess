@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //Code provided for this script, PlayerCamera and moveCamera from Dave / GameDevelopment on YouTube
+    //Code provided for this script, PlayerCamera and moveCamera from Dave / GameDevelopment on YouTube https://youtu.be/f473C43s8nE
 
     [Header("Movement")]
     public float moveSpeed;
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
 
-    private void MyInput()
+    private void MyInput() // inputs handeled here
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Jump()
+    private void Jump() // really bootleg jumping code, if the player jumped off a tall building, they coudl jump again in the air because of a "jump timer" running out
     {
         Debug.Log("Jump force applied:  " + jumpForce);
         Debug.Log("Current velocity after jump:  " + rb.velocity);

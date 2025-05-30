@@ -27,24 +27,24 @@ public class weaponAmmo : MonoBehaviour
 
 
     //This gets called before shooting
-    public bool CanFire()
+    public bool CanFire() // won't let the player fire if they either don't have ammunition or are currently reloading
     {
         return currentAmmo > 0 && !isReloading;
     }
 
-    public void ConsumeAmmo()
+    public void ConsumeAmmo() // omm nom nom eats the ammo
     {
         if (CanFire())
             currentAmmo--;
     }
 
     //Call this from pickups
-    public void AddAmmo(int amount)
+    public void AddAmmo(int amount) //doesn't let ammo exceed a certain amount
     {
         currentAmmo = Mathf.Clamp(currentAmmo + amount, 0, maxAmmo);
     }
 
-    public IEnumerator Reload()
+    public IEnumerator Reload() // handles the changing sprites for the shotguns reload animation
     {
         if (isReloading || currentAmmo == maxAmmo)
             yield break;

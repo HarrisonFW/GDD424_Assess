@@ -20,7 +20,7 @@ public class VoodooUIController : MonoBehaviour
         }
     }
 
-    IEnumerator FireShotgun()
+    IEnumerator FireShotgun() // changes voodoo doll sprites when mosue button is pressed
     {
         VoodooDollImage.sprite = VoodooStab1;
 

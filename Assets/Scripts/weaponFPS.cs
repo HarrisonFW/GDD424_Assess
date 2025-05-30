@@ -19,7 +19,7 @@ public class weaponFPS : MonoBehaviour
 
     
 
-    private void OnEnable()
+    private void OnEnable() //immidielty enable shooting
     {
         canShoot = true;
     }
@@ -31,7 +31,7 @@ public class weaponFPS : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() // code for recognising mouse inputs and calls the Shoot coroutine
     {
         if (ammo == null) return;
 
@@ -61,7 +61,7 @@ public class weaponFPS : MonoBehaviour
 
     
 
-    private IEnumerator Shoot()
+    private IEnumerator Shoot() // can't shoot while shooting, hence why it's momentarily disabled. Also processes the cooldown time
     {
         canShoot = false;
 
@@ -71,7 +71,7 @@ public class weaponFPS : MonoBehaviour
         canShoot = true;
     }
 
-    private void ProcessRaycast()
+    private void ProcessRaycast() // Raycasting a line and makes a weapon damage an enemy
     {
         RaycastHit hit;
         if(Physics.Raycast(originPos.transform.position, originPos.transform.forward, out hit, weaponRange))

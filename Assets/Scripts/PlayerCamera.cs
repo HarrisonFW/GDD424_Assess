@@ -19,7 +19,7 @@ public class PlayerCamera : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void Update()
+    private void Update() // sensitive camera when looking around with the mouse
     {
         // this gets the mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;

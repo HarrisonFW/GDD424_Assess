@@ -18,13 +18,13 @@ public class WeaponSwitcher : MonoBehaviour
         SelectWeapon(currentWeaponIndex);
     }
 
-    void Update()
+    void Update() // calls these fucntions continually
     {
         HandleScrollInput();
         HandleNumberKeyInput();
     }
 
-    void HandleScrollInput()
+    void HandleScrollInput() // since I like also using the scroll wheel to select weapons, this is the code for that, working if the user scrolls up or down
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
@@ -40,7 +40,7 @@ public class WeaponSwitcher : MonoBehaviour
         }
     }
 
-    void HandleNumberKeyInput()
+    void HandleNumberKeyInput() // code for weapon selecting
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -53,7 +53,7 @@ public class WeaponSwitcher : MonoBehaviour
         // Add more keys if I add more weapons (Alpha3, Alpha4, etc.)
     }
 
-    void SelectWeapon(int index)
+    void SelectWeapon(int index) // code that would allow for easy exansion if more weapons were added instead of hard coding numbers
     {
         for (int i = 0; i < weapons.Length; i++)
         {

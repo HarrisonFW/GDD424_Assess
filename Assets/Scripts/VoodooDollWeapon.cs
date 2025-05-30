@@ -31,7 +31,7 @@ public class VoodooDollWeapon : MonoBehaviour
         ammo = GetComponent<weaponAmmo>();
     }
 
-    public void Update()
+    public void Update() // allows the voodoo doll to "fire" after pressing down the mouse button, also has an attack cooldown
     {
         if(Input.GetButtonDown("Fire1") && Time.time >= lastAttackTime + attackCooldown)
         {
@@ -56,7 +56,7 @@ public class VoodooDollWeapon : MonoBehaviour
         }
     }
 
-    public void Attack()
+    public void Attack() //basically acts as a small damaging long range "gun" with the use of raycasting. Lots of debugging code used here
     {
        
             lastAttackTime = Time.time;

@@ -8,7 +8,7 @@ public class WeaponAmmoUI : MonoBehaviour
     public weaponAmmo weaponAmmoButLikeNotTheScript;
     public TMP_Text ammoText;
 
-    public void Update()
+    public void Update() // updates the displayed ammo amount for the shotgun. 
     {
         if (weaponAmmoButLikeNotTheScript != null && ammoText != null)
         {

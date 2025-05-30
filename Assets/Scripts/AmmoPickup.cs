@@ -9,7 +9,7 @@ public class AmmoPickup : MonoBehaviour
 
     public Transform player;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) // when the player collided with the sprites, more ammo is added to each ones respective weapon. Redundant for the shotgun sicne the player can reload with R at any point, regardless of remainign ammo
     {
         WeaponSwitcher switcher = other.GetComponentInChildren<WeaponSwitcher>();
         if (switcher == null) return;
