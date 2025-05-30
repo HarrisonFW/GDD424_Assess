@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 
 public class WaveManager : MonoBehaviour
@@ -18,9 +20,9 @@ public class WaveManager : MonoBehaviour
     public int currentWave = 0;
     private int enemiesRemaining = 0;
 
-    public Text waveText;
-    public Text enemiesLeftText;
-    public Text notificationText;
+    public TextMeshProUGUI waveText;
+    public TextMeshProUGUI enemiesLeftText;
+    public TextMeshProUGUI notificationText;
 
     public PlayerHEALTH playerHealth;
 

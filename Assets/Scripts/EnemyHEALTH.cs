@@ -6,7 +6,7 @@ public class EnemyHEALTH : MonoBehaviour
 {
    public float hP = 100f;
 
-    public WaveManager waveManager; 
+   public WaveManager waveManager; 
 
     bool isDead = false;
 
@@ -65,6 +65,7 @@ public class EnemyHEALTH : MonoBehaviour
 
     public void TakeDamage(float weaponDamage)
     {
+     
         BroadcastMessage("OnDamageTaken");
         hP -= weaponDamage;
 
@@ -79,9 +80,23 @@ public class EnemyHEALTH : MonoBehaviour
             if (isDead) { return; }
             isDead = true;
 
+            Die();
+
             spriteRenderer.sprite = deadSprite;
             Destroy(gameObject);
             //GetComponent<Animator>().SetTrigger("dyingTrigger");
         }
     }
+
+
+    void Die()
+    {
+        if(waveManager != null)
+        {
+            waveManager.OnEnemyKilled();
+        }
+
+        Destroy(gameObject);
+    }
+
 }
