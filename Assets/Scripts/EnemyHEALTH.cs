@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyHEALTH : MonoBehaviour
 {
-    float hP = 100f;
+   public float hP = 100f;
+
+    public WaveManager waveManager; 
 
     bool isDead = false;
 

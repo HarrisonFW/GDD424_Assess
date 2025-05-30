@@ -26,4 +26,10 @@ public class PlayerHEALTH : MonoBehaviour
         Debug.Log("Player died! wow you freaking suck");
         GameObject.FindObjectOfType<GameManager>().PlayerDied();
     }
+
+    public void HealToFull()
+    {
+        //currentHealth = maxHealth;
+        //UpdateHealthUI();
+    }
 }
